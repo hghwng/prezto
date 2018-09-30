@@ -22,12 +22,11 @@ unset COMPILER_ARG EXTRA_ARG COMPILER_ARGS EXTRA_ARGS COMPILER
 
 # Debugger
 
-alias d="gdb --args"
+alias gda="gdb --args"
 alias pd="gdb -ix /usr/share/peda/peda.py"
 alias vd="valgrind --vgdb=yes --vgdb-error=0"
 
 # IDA
-
 
 function ida32() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida.exe "${@}" & }
 function ida64() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe "${@}" & }
