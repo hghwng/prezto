@@ -28,9 +28,9 @@ alias vd="valgrind --vgdb=yes --vgdb-error=0"
 
 # IDA
 
-function ida32() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida.exe "${@}" & }
-function ida64() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe "${@}" & }
-function ida() {
+ida32() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida.exe "${@}" & }
+ida64() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe "${@}" & }
+ida() {
     local filetype=$(file -b "${@}")
     echo "file type: ${filetype}"
     case "${filetype}" in
