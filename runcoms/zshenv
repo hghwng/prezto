@@ -9,7 +9,7 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
-export PATH="$HOME/doc/software/bin:$HOME/doc/software/pkg/cargo/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/doc/software/bin:$HOME/doc/software/pkg/cargo/bin:$HOME/.local/bin:$HOME/.config/npm/bin:$PATH"
 export LANG=en_US.UTF-8
 export LC_ALL=$LANG
 export EDITOR="ecli"
