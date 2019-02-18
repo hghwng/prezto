@@ -12,6 +12,7 @@ COMPILER_ARGS="-Wall -Wextra -Wpedantic"
 declare -A EXTRA_ARGS
 EXTRA_ARGS=('o' '-O3 -march=native' \
             'd' '-O0 -g3'
+            'f' '-O0 -g3 -fsanitize=undefined -fsanitize=undefined -fsanitize=memory'
             '' '')
 for EXTRA_ARG in "${(@k)EXTRA_ARGS}"; do
     for COMPILER in "g++" "clang++"; do
@@ -22,8 +23,9 @@ unset COMPILER_ARG EXTRA_ARG COMPILER_ARGS EXTRA_ARGS COMPILER
 
 # Debugger
 
-alias gda="gdb --args"
-alias pd="gdb -ix /usr/share/peda/peda.py"
+alias gdba="gdb --args"
+alias gdbp="gdb -ix /usr/share/peda/peda.py"
+alias gdbw="gdb -ix /usr/share/pwndbg/gdbinit.py"
 alias vd="valgrind --vgdb=yes --vgdb-error=0"
 
 # IDA

@@ -2,7 +2,7 @@ alias xcpath='echo $PWD | pbc'
 
 alias gbkunzip='unzip -O gb2312'
 alias gbkftp='lftp -e "set ftp:charset gbk"'
-alias cal='cal -3m'
+alias cal='cal -w3m'
 alias wine='WINEDLLOVERRIDES=winemenubuilder.exe=d wine'
 alias 7za='7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m'
 
@@ -10,6 +10,7 @@ alias t="~/tmp/; ls -lht"
 alias z="fasd_cd"
 
 alias l="ls -lh"
+alias ltf="date --rfc-3339=ns; lt --full-time"
 alias free='free -h'
 alias rm="rm -I"
 alias du="du -hd1"
