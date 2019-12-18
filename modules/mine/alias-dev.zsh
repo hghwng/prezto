@@ -33,7 +33,8 @@ alias vd="valgrind --vgdb=yes --vgdb-error=0"
 ida32() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida.exe "${@}" & }
 ida64() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe "${@}" & }
 ida() {
-    local filetype=$(file -b "${@}")
+    local realpath=$(realpath "${@}")
+    local filetype=$(file -b "$realpath")
     echo "file type: ${filetype}"
     case "${filetype}" in
         "Mach-O universal"*)
@@ -46,7 +47,7 @@ ida() {
             ;&
         "ELF 64-bit"*)
             echo 'Opening with ida64...'
-            ida64 "${@}"
+            ida64 "$realpath"
             ;;
 
         "ELF 32-bit"*)
@@ -55,12 +56,12 @@ ida() {
             ;&
         "Mach-O executable"*)
             echo 'Opening with ida32...'
-            ida32 "${@}"
+            ida32 "$realpath"
             ;;
 
         *)
             echo 'Unable to detect file type, opening with ida32.'
-            ida32 "${@}"
+            ida32 "$realpath"
             ;;
     esac
 }
