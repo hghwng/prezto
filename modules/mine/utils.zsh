@@ -41,4 +41,17 @@ dotview() {
     dot -Tpdf "$@" -o "${1%.*}.pdf" && evince "${1%.*}.pdf"
 }
 
+svg2pdf() {
+    inkscape --export-pdf="${1%.*}.pdf" "$@"
+}
+
 urldecode() { awk -niord '{printf RT?$0chr("0x"substr(RT,2)):$0}' RS=%.. }
+
+autosync() {
+    rsync -av $RSYNC_ARGS "$1" "$2"
+    while inotifywait -qr "$1" --exclude '\.#.*' -e modify -e move -e create -e delete; do
+        date
+        rsync -av $RSYNC_ARGS "$1" "$2"
+        sleep 1
+    done
+}

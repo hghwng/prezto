@@ -25,6 +25,7 @@ unset COMPILER_ARG EXTRA_ARG COMPILER_ARGS EXTRA_ARGS COMPILER
 
 alias gdba="gdb --args"
 alias gdbp="gdb -ix /usr/share/peda/peda.py"
+alias gdbpa="gdb -ix /usr/share/peda/peda.py --args"
 alias gdbw="gdb -ix /usr/share/pwndbg/gdbinit.py"
 alias vd="valgrind --vgdb=yes --vgdb-error=0"
 
