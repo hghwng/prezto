@@ -31,8 +31,8 @@ alias vd="valgrind --vgdb=yes --vgdb-error=0"
 
 # IDA
 
-ida32() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida.exe "${@}" & }
-ida64() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe "${@}" & }
+ida32() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.2/ida.exe "${@}" & }
+ida64() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.2/ida64.exe "${@}" & }
 ida() {
     local realpath=$(realpath "${@}")
     local filetype=$(file -b "$realpath")

@@ -1,4 +1,5 @@
 alias xcpath='echo $PWD | pbc'
+alias rm="rm -I"
 
 alias gbkunzip='unzip -O gb2312'
 alias gbkftp='lftp -e "set ftp:charset gbk"'
@@ -12,7 +13,6 @@ alias z="fasd_cd"
 alias l="ls -lh"
 alias ltf="date --rfc-3339=ns; lt --full-time"
 alias free='free -h'
-alias rm="rm -I"
 alias du="du -hd1"
 alias dud="du -hd0"
 alias bye="bg; disown; exit"
