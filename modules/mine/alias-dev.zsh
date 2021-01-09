@@ -29,6 +29,8 @@ alias gdbpa="gdb -ix /usr/share/peda/peda.py --args"
 alias gdbw="gdb -ix /usr/share/pwndbg/gdbinit.py"
 alias vd="valgrind --vgdb=yes --vgdb-error=0"
 
+alias prec="perf record -g --call-graph=dwarf -z2"
+
 # IDA
 
 ida32() { WINEDEBUG=-all wine ~/.wine/drive_c/Program\ Files/IDA\ 7.2/ida.exe "${@}" & }
@@ -65,4 +67,10 @@ ida() {
             ida32 "$realpath"
             ;;
     esac
+}
+
+# Git
+gdc() {
+  # git diff with color but without "+" or "-" at the beginning, for the ease of copy-paste
+  git diff --color "$@" | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r
 }
