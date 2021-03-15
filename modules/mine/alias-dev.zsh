@@ -21,6 +21,15 @@ for EXTRA_ARG in "${(@k)EXTRA_ARGS}"; do
 done
 unset COMPILER_ARG EXTRA_ARG COMPILER_ARGS EXTRA_ARGS COMPILER
 
+function clangbc() {
+  clang -c -emit-llvm -O3 -Xclang -disable-llvm-passes "$@"
+}
+
+function clangir() {
+  clangbc "$1" -o - | opt -S -mem2reg -instnamer
+}
+
+
 # Debugger
 
 alias gdba="gdb --args"
