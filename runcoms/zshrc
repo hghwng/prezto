@@ -15,5 +15,4 @@ source /etc/profile.d/vte.sh
 bindkey "$key_info[Escape]f" forward-word
 bindkey "$key_info[Escape]\r" autosuggest-execute
 setopt rmstarsilent
-export TERM=xterm-256color
 unset GREP_COLORS
