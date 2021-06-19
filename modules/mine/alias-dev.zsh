@@ -26,7 +26,7 @@ function clangbc() {
 }
 
 function clangir() {
-  clangbc "$1" -o - | opt -S -mem2reg -instnamer
+  clangbc "$@" -o - | opt -S -mem2reg -instnamer
 }
 
 
